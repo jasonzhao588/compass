@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+/* ***********主要颜色变量************ */
+$blue-grey:             #3d5f83      		!default;//蓝灰
+$light-green:           #2bc498    			!default;//亮绿
+$orange:                #fdaf43         	!default;//黄色
+$purple:                #a667f5        		!default;//紫色
+$green:                 #21c86d          	!default;//绿色
+$blue:                  #05acfe           	!default;//蓝色
+$yellow:          			#ffde82         !default;//黄色
+$light-red:             #ff8282            	!default;//亮红色
+$teal:                  $teal-500           !default;//兰绿色
+$indigo:                $indigo-500         !default;//靛蓝
+
+
+
+$red:                   #ef5f5f            	!default;//红色
+$pink:                  $pink-500           !default;//粉红
+$light-purple:          $deep-purple-500    !default;//深紫色
+$light-blue:            #1ca7ef    			!default;//亮蓝
+$cyan:                  $cyan-500           !default;//青色
+$lime:                  $lime-500           !default;//青橙绿
+$amber:                 $amber-500          !default;//琥珀黄/金色
+$orange:                #fe8d05         	!default;//橙色
+$deep-orange:           $deep-orange-500    !default;//深橙色
+$brown:                 $brown-500          !default;//棕色
+$grey:                  $grey-500           !default;//灰色
+
+
+
+// app变量
+$primary   :   #0baaed;//品牌色
+$primary-d : darken($primary, 5%);
+$primary-l : lighten($primary, 5%);
+// 颜色
+
+// 距离
+$header-hight : 80px;
+$logo-height: 50px;
+$header-hight-m : 44px;
+$logo-height-m: 30px;
+
+
+$icon-size : 90px;
+$icon-size-m : 60px;
+
+$padding   : 8px;
+$margin    : 8px;
+
+$border-radius : 3px;
+$gutter-v: 10px;
+/* =======Bootstrap colors======== */
+$border-radius-base :   $border-radius;
+$darken-amount: 			 0%;
+$feedback-amount: 		 10%;
+$color-amount : 40%;
+$bg-hover-amount : 10%;
+
+
+$grid-gutter-width:     30px !default;
+// colors
+$brand-primary:         $primary !default; // #337ab7
+$brand-success:         $green !default;
+$brand-info:            $blue !default;
+$brand-warning:         $deep-orange !default;
+$brand-danger:          $red !default;
+//buttons
+$btn-primary-border:             darken($brand-primary, $darken-amount) !default;
+$btn-success-border:             darken($brand-success, $darken-amount) !default;
+$btn-info-border:                darken($brand-info, $darken-amount) !default;
+$btn-warning-border:             darken($brand-warning, $darken-amount) !default;
+$btn-danger-border:              darken($brand-danger, $darken-amount) !default;
+$btn-link-disabled-color:        $grey-300 !default;
+
+// 其它公共变量
+$ff 		: 'Arial','Microsoft Yahei';
+$mdi-font-path : '../fonts/md-fonts/fonts';
+$fa-font-path : '../fonts/fontawesome';
+$font-path : '../fonts';
+
+
+
+
+
+// ************** 响应式设置 ************************//
+$xxs : 480px;
+$xs : 768px;
+$sm : 1024px;
+$md : 1280px;
+$lg : 1366px;
+$xl : 1440px;
+$xxl : 1600px;

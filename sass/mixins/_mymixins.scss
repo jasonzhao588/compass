@@ -1,0 +1,190 @@
+@mixin box-border($border-color,$top,$right,$bottom,$left,$border-style:solid) {
+	border-style: $border-style;
+	border-color: $border-color;
+	border-width: $top $right $bottom $left;
+}
+//个人
+@mixin box-position($left:50%,$top:50%,$x:-50%,$y:-50%,$position:absolute) {
+  position: $position;
+  left: $left;
+  top: $top;
+  @include transform(translate($x,$y));
+}
+@mixin layout-position($top:0, $right:0, $bottom:0, $left:0, $position:absolute) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin box-middle($x:-50%,$y:-50%) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include transform(translate($x,$y));
+}
+@mixin modal-center($w,$h){
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: $w;
+	height: $h;
+	margin-left: -$w / 2;
+	margin-top: -$h / 2
+};
+@mixin box-center($w,$mt:0,$mb:0) {
+  width: $w;
+  margin: $mt auto $mb;
+}
+@mixin right-middle($right:15px,$x:0,$y:-50%) {
+  position: absolute;
+  right: $right;
+  top: 50%;
+  @include transform(translate($x,$y));;
+}
+@mixin left-middle($left:15px,$x:0,$y:-50%) {
+  position: absolute;
+  left: $left;
+  top: 50%;
+  @include transform(translate($x,$y));
+}
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin ellipsis-more($lines) {
+display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+white-space: normal!important;
+-webkit-line-clamp: $lines;
+-webkit-box-orient: vertical;
+}
+
+@mixin circular($size){
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  line-height: $size;
+  text-align: center;
+}
+@mixin full-box($top:0 ,$right:0,$bottom:0,$left:0){
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin clip-path($clip) {
+  -webkit-clip-path: $clip;
+  -moz-clip-path: $clip;
+  -ms-clip-path: $clip;
+  clip-path: $clip;
+}
+
+@mixin thumb-size($size) {
+  max-width: $size;
+  max-height: $size;
+  height: $size;
+  width: $size;
+}
+
+@mixin avatar-size($size) {
+  min-width: $size;
+  min-height: $size;
+  height: $size;
+  width: $size;
+}
+
+/* 动画 */
+
+@mixin carousel-animation($frames, $static, $name: 'carousel') {
+  $animating: (100% - $frames * $static) / ($frames - 1);
+  $n: 5;
+  $x: 17.5%;
+  $y: (100% - $n * $x) / ($n - 1);
+  @at-root {
+    @keyframes #{$name} {
+      @for $i from 0 to $n {
+        $current-frame: ($i * $x) + ($i * $y);
+        $next-frame: (($i + 1) * $x) + ($i + $y);
+
+        #{$current-frame, $next-frame} {
+          transform: translate3d($i * -100% / $frames, 0, 0);
+        }
+
+        $halfway-frame: $i * ($x / 1%) + ($i - 1) * $y + ($y / 2);
+
+        @if $i > 0 {
+          #{$halfway-frame} {
+            filter: blur(2px);
+          }
+        }
+      }
+    }
+  }
+}
+/*==== 
+*
+@include carousel-animation(
+  $frames: 5,
+  $static: 20%
+);
+*
+====*/
+
+
+
+// screen
+//-----------------------------------------------------
+
+@mixin screen($resMin, $resMax)
+{
+  @media screen and (min-width: $resMin) and (max-width: $resMax)
+  {
+    @content;
+  }
+}
+
+@mixin max-screen($res)
+{
+  @media screen and (max-width: $res)
+  {
+    @content;
+  }
+}
+
+@mixin min-screen($res)
+{
+  @media screen and (min-width: $res)
+  {
+    @content;
+  }
+}
+
+@mixin screen-height($resMin, $resMax)
+{
+  @media screen and (min-height: $resMin) and (max-height: $resMax)
+  {
+    @content;
+  }
+}
+
+@mixin max-screen-height($res)
+{
+  @media screen and (max-height: $res)
+  {
+    @content;
+  }
+}
+
+@mixin min-screen-height($res)
+{
+  @media screen and (min-height: $res)
+  {
+    @content;
+  }
+}
